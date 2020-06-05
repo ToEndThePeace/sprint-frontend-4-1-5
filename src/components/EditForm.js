@@ -26,7 +26,8 @@ const StyledForm = styled.form`
       font-weight: 700;
       margin-bottom: 25px;
       padding-bottom: 10px;
-      border-bottom: 1px solid black;
+      border-bottom: 1px solid #451015;
+      color: #451015;
       width: 100%;
     }
     & > div {
@@ -43,7 +44,7 @@ const StyledForm = styled.form`
       input,
       textarea {
         flex-grow: 1;
-        border: 1px solid black;
+        border: 1px solid #451015;
         border-radius: 5px;
         font-family: "Open Sans", sans-serif;
         padding: 5px 10px;
@@ -59,12 +60,13 @@ const StyledForm = styled.form`
           margin: 0 0 0 auto;
           padding: 10px 20px;
           font-weight: 600;
-          color: black;
-          background: white;
+          color: white;
+          border: none;
+          background: #451015;
           font-size: 1rem;
           cursor: pointer;
           &:hover {
-            background: #e9e9e9;
+            background: #562126;
           }
         }
       }
