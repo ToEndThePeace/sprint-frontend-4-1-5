@@ -1,25 +1,34 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import styled from "styled-components";
+import Header from "./components/Header";
+import { Projects, Actions } from "./utils";
+import ProjectList from "./components/ProjectList";
+
+const StyledApp = styled.div`
+  padding: 50px;
+`;
 
 function App() {
+  const [projects, setProjects] = useState(null);
+  const [actions, setActions] = useState(null);
+
+  useEffect(() => {
+    Projects.fetch()
+      .then((res) => {
+        setProjects(res.data);
+      })
+      .catch((err) => console.log(err));
+    Actions.fetch()
+      .then((res) => {
+        setActions(res.data);
+      })
+      .catch((err) => console.log(err));
+  }, []);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <StyledApp className="App">
+      <Header />
+      <ProjectList projects={projects} actions={actions} />
+    </StyledApp>
   );
 }
 
